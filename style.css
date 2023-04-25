@@ -1,0 +1,387 @@
+html {
+  height: 100%;
+  width: 100%;
+  background-color: var(--background-color-web);
+
+
+}
+
+:root {
+  --background-color-web: #f4a460;
+  --background-calculator: #fff5ee;
+  --shadow-calculator: #778899;
+  --display-color: #ffe6d5;
+  --button-background-color: #faf0e6;
+  --button-color: black;
+  --button-operator-background: #f5deb3;
+  --button-equal-background: #ecc16f;
+}
+
+.dark-mode {
+  --background-color-web: #d2b48c;
+  --background-calculator: #708090;
+  --shadow-calculator: #FAF0E6;
+  --display-color: #ffebcd;
+  --button-background-color: #778899;
+  --button-color: #f0ffff;
+  --button-operator-background: #d2b48c;
+  --button-equal-background: #bc9055;
+}
+
+
+body {
+  font-family: myFont, "Alkatra", cursive;
+  font-weight: bold;
+  width: 100 vw;
+  height: 90vh;
+}
+
+/*Aplicable to everything. It is a mini-reset.*/
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+@font-face {
+  font-family: myFont;
+  src: url(fonts/lcdSolidFont.ttf);
+}
+
+/*Container grid of everything. It will be divided in 3. The operations record,
+  the calculator and the last one will have featuresn like the date and hour.
+  Here I will define the structure of the page.*/
+#container-grid {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 1rem;
+}
+
+/*------------------------CALCULATOR GRID-----------------------*/
+/*This part will define the style of the calculator grid.
+  The most important element. The grid divides it in 3 parts.
+  Each one will be styled below, the header, display and buttons part.*/
+
+.calculator-grid {
+  grid-column: 2/3;
+  display: grid;
+  min-width: 500px;
+  max-width: 750px;
+  margin-top: 7rem;
+  justify-self: center;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 3fr 10fr;
+  background-color: var(--background-calculator);
+  filter: drop-shadow(0 0 20px var(--shadow-calculator));
+}
+
+
+/*------------------ CALCULATOR HEADER------------------*/
+/*It is divided in a flex with a separation of space between.*/
+.calculator-header {
+  grid-row: 1/2;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/*Style the header*/
+.casio-logo {
+  width: 6rem;
+  height: 3rem;
+  margin-left: 1rem;
+}
+
+/*Switch, contains the slider.*/
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  margin-right: 1rem;
+}
+
+/*To hide default HTML checkbox.*/
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/*Slider properties*/
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: lightslategrey;
+  transition: 0.4s;
+}
+
+/*Slider before being active. Applies to the little circle on the inside.*/
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #d2b48c;
+  transition: 0.4s;
+}
+
+/*So that when it is clicked the background color of the slider changes.*/
+input:checked+.slider {
+  background-color: #ffebcd;
+}
+
+/*So that when the focus is on the slider a little shadow applies to it.*/
+input:focus+.slider {
+  box-shadow: 0 0 1px #ffe4c4;
+}
+
+/*So that when it is clicked the circle (.slider:before) moves to the right 26px.*/
+input:checked+.slider:before {
+  transform: translateX(26px);
+}
+
+/*Give the slider a round corner.*/
+.slider.round {
+  border-radius: 34px;
+}
+
+/*To make the little circle (.slider:before) like a circle.*/
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/*------------------ CALCULATOR DISPLAY------------------*/
+/*It is divided in a flex with a superior part that stores the operation
+and one in the bottom that stores the result.*/
+.calculator-display {
+  grid-row: 2/3;
+  border-radius: 10px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--display-color);
+  overflow: hidden;
+  text-overflow: clip;
+}
+
+
+/*Style the display.*/
+.operations-top {
+  flex-basis: 40%;
+  font-size: 1.3rem;
+  padding: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.show-error {
+  text-align: right;
+}
+
+.result-bottom {
+  flex-basis: 60%;
+  font-size: 3rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: right;
+  padding-right: 5px;
+  white-space: nowrap;
+}
+
+/*------------------ CALCULATOR BUTTONS------------------*/
+/*It is divided in a grid, each grid has a div with a button inside.*/
+.calculator-buttons {
+  grid-row: 3/4;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+}
+
+/*Style to the divs on the computer-buttons grid*/
+.btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  font-family: myFont, "Alkatra", cursive;
+  background-color: var(--button-background-color);
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--button-color);
+}
+
+.button:active {
+  opacity: 0.6;
+}
+
+.btn-operator {
+  background-color: var(--button-operator-background);
+  color: black;
+}
+
+.btn-equal {
+  background-color: var(--button-equal-background);
+  color: black;
+}
+
+/*To give it special font size.*/
+.btn-delete .button {
+  font-size: 1.7rem;
+}
+
+/*To adjust the point button to the button grid.*/
+.point-button div {
+  position: relative;
+  margin-left: 3px;
+}
+
+/*To adjust x and - buttons to the button grid.*/
+.btn-addsub div {
+  position: relative;
+  margin-top: 7px;
+}
+
+/*To adjust the equal button to the button grid.*/
+.btn-equal div {
+  position: relative;
+  margin-top: 10px;
+}
+
+/*------------------------LEFT PART WITH THE LOG-----------------------*/
+/*It is divided in a flex that keeps adding the results.*/
+.operations-record-grid {
+  grid-column: 1/2;
+  display: flex;
+  margin-top: 7rem;
+  flex-direction: column;
+  align-items: center;
+}
+
+.record-icon {
+  width: 5rem;
+  height: 5rem;
+}
+
+.record-title {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.btn-clear-history {
+  margin-top: 1rem;
+  width: 10rem;
+  height: 3 rem;
+  font-size: 1rem;
+  padding: 0.5rem;
+  background-color: #f5deb3;
+  border-radius: 3rem;
+  font-family: myFont, "Alkatra", cursive;
+  cursor: pointer;
+  visibility: hidden;
+}
+
+/*Class added from js*/
+.addedOp {
+  margin-top: 1rem;
+  font-size: 1rem;
+  border: 1px solid black;
+  padding: 0.4rem;
+  text-align: center;
+  margin-left: 0.4rem;
+  border-radius: 4px;
+  background-color: #ffebcd;
+  width: 15rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-clear-history:active {
+  opacity: 0.6;
+}
+
+/*------------------------RIGHT PART WITH THE INFO-----------------------*/
+/*It is divided in a grid, one with the date, another with the time and
+the other with the parenthesis button.*/
+
+.info-grid {
+  grid-column: 3/4;
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  grid-template-columns: 1fr;
+  margin-top: 7rem;
+}
+
+/*Properties of paragraph inserted by js in which the date is stored.*/
+.date-today p {
+  text-align: center;
+  margin-bottom: 0.7rem;
+  color: #daff33;
+  filter: drop-shadow(0 0 20px #FAF0E6);
+}
+
+.current-time {
+  display: flex;
+  justify-content: center;
+}
+
+/*Properties of paragraph inserted by js in which the time is stored.*/
+.current-time p {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  border: 3px solid #daff33;
+  border-radius: 5px;
+  padding: 0.5rem;
+  margin-bottom: 4rem;
+  color: #daff33;
+  filter: drop-shadow(0 0 20px #FAF0E6);
+}
+
+/*Parenthesis button*/
+.parenthesis {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.parenthesis p {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.parenthesis button {
+  /*Other characteristics are inherited from button selector.*/
+  margin-top: 2.5rem;
+  background-color: #f5deb3;
+  filter: drop-shadow(0 0 10px #778899);
+}
+
+.parenthesis button:active {
+  opacity: 0.6;
+}
+
+/*Para encajar correctamente en el botón.*/
+.parenthesis button div {
+  position: relative;
+  padding-top: 6px;
+}

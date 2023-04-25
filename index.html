@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="shortcut icon" href="img/iconCalc.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alkatra:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <!--It is composed of a big grid that has 3 divs that are, at the same time, flex a grid and another flex.-->
+    <div id="container-grid">
+        <div class="operations-record-grid">
+            <img src="img/history.png" class="record-icon" alt="record icon">
+            <p class="record-title">CALCULATIONS RECORD</p>
+            <button class="btn-clear-history btn">CLEAR HISTORY</button>
+        </div>
+        <div class="calculator-grid">
+            <div class="calculator-header">
+                <img src="img/casio.png" class="casio-logo" alt="casio">
+
+                <label class="switch btn">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+
+            <div class="calculator-display">
+                <div class="operations-top">
+                </div>
+                <div class="result-bottom">
+                </div>
+            </div>
+            <div class="calculator-buttons">
+                <div class="btn-container">
+                    <button class="button btn-operator btn">C</button>
+                </div>
+                <div class="btn-container">
+                    <button class="button btn-operator btn">±</button>
+                </div>
+                <div class="btn-container">
+                    <button class="button btn-operator btn">%</button>
+                </div>
+                <div class="btn-container">
+                    <button class="button btn-operator btn">/</button>
+                </div>
+                <div class="btn-container">
+                    <button class="button btn-number btn">7</button>
+                </div>
+                <div class="btn-container">
+                    <button class="button btn-number btn">8</button>
+                </div>
+                <div class="btn-container">
+                    <button class="button btn-number btn">9</button>
+                </div>
+                <div class="btn-container">
+                    <button class="button btn-operator btn">x</button>
+                </div>
+                <div class="btn-container">
+                    <button class="button btn-number btn">4</button>
+                </div>
+                <div class="btn-container">
+                    <button class="button btn-number btn">5</button>
+                </div>
+                <div class="btn-container">
+                    <button class="button btn-number btn">6</button>
+                </div>
+                <div class="btn-container">
+                    <button class="button btn-addsub btn-operator btn">
+                        <!--To center the - on the button.-->
+                        <div>-</div>
+                    </button>
+                </div>
+                <div class="btn-container">
+                    <button class="button btn-number btn">1</button>
+                </div>
+                <div class="btn-container">
+                    <button class="button btn-number btn">2</button>
+                </div>
+                <div class="btn-container">
+                    <button class="button btn-number btn">3</button>
+                </div>
+                <div class="btn-container">
+                    <button class="button btn-addsub btn-operator btn">
+                        <!--To center the point on the button.-->
+                        <div>+</div>
+                    </button>
+                </div>
+                <div class="btn-container">
+                    <button class="button btn-number btn"> 0</button>
+                </div>
+                <div class="btn-container">
+                    <button class="point-button button btn">
+                        <!--To center the point on the button.-->
+                        <div>.</div>
+                    </button>
+                </div>
+                <div class="btn-delete btn-container">
+                    <button class="delete-button button btn-operator btn">del</button>
+                </div>
+                <div class="btn-container">
+                    <button class="button btn-equal btn">
+                        <!--To center the equal on the button.-->
+                        <div class="pr">=</div>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-grid">
+            <p class="date-today"></p>
+            <div class="current-time"></div>
+            <div class="parenthesis">
+                <p>CONTROL THE HIERARCHY</p>
+                <!--To center the parenthesis on the button.-->
+                <button class="btn-container button btn-operator btn">
+                    <div>()</div>
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
