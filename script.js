@@ -306,7 +306,6 @@ function calculateResult() {
               }
 
               resultParenthesis = calculate(opInParenthesisString);
-              console.log(resultParenthesis);
 
               //If the "(" is position 0 or before I have "x", "/", "%", which does not change nothing,
               //just remove the parenthesis and add the result.
@@ -590,7 +589,6 @@ function calculate(strOperation) {
   //clean array from spaces created when a split char is at the first position
   //or when two split char are next to each other
   //Example: "-20/+2" -> ["","-","20","/","","+","2"]
-  console.log(arrayOfElements);
   for (let i = 0; i < arrayOfElements.length; i++) {
     if (arrayOfElements[i] == "") arrayOfElements.splice(i, 1);
   }
@@ -630,7 +628,6 @@ function calculate(strOperation) {
     let i = 0;
     //Loop to go trough all elements
     while (i < arrayOfElements.length) {
-      console.log(arrayOfElements);
       switch (arrayOfElements[i]) { //element of the arrayOfElements array
 
         case "x": //if the element is "x", multiply the number before and after
@@ -663,7 +660,6 @@ function calculate(strOperation) {
   if (arrayOfElements.includes("+") || arrayOfElements.includes("-")) {
     let j = 0;
     while (j < arrayOfElements.length) {
-      console.log(arrayOfElements);
       switch (arrayOfElements[j]) {
         case "+":
           result = arrayOfElements[j - 1] + arrayOfElements[j + 1];
@@ -681,12 +677,10 @@ function calculate(strOperation) {
       }
     }
   }
-  console.log(arrayOfElements);
   if (result === - 0) result = 0;
   return result;
 }
 //console.log(calculate("+3-2"));
-console.log(calculate("-4x-5+3/-4+2-1"));
 //console.log(calculate("-20x+2-10x-3"));
 //console.log(calculate("21%18"));
 /*--------------------ROUND DECIMALS------------------------*/
