@@ -19,6 +19,8 @@ Project of a calculator done by me, Ali hourag. Hierarchy of operation is studie
 * You can change the display numbers through clicking on the keyboard!
 * It studies possible errors, like not closing parenthesis, not being able to add more than one zero before a coma, not being able to concatenate operands that make no sense like ++ and much more!
 
+<a href="https://drive.google.com/file/d/14lhrSUoWvf5jipwLfdEkhxnTzbFxXd3p/view?usp=sharing">Click here to see an explanatory video!</a>
+
 ## Technologies
 - HTML
 - CSS
