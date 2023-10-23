@@ -18,8 +18,9 @@ Project of a calculator done by me, Ali hourag. Hierarchy of operation is studie
 * Shows you your calculations record!
 * You can change the display numbers through clicking on the keyboard!
 * It studies possible errors, like not closing parenthesis, not being able to add more than one zero before a coma, not being able to concatenate operands that make no sense like ++ and much more!
-
+<p align="center">
 <a href="https://drive.google.com/file/d/14lhrSUoWvf5jipwLfdEkhxnTzbFxXd3p/view?usp=sharing">Click here to see an explanatory video of the project and a demo!</a>
+</p>
 
 ## Technologies
 - HTML
@@ -30,9 +31,9 @@ Project of a calculator done by me, Ali hourag. Hierarchy of operation is studie
 ## Setup
 If you want run it directly from code do it trough Live Server or similar.
 <br/>
-Otherwise, open it by clicking <a href="https://calculator-ali.vercel.app/">here<a/>.
+Otherwise, open it by clicking <a href="https://calculator-ali.vercel.app/">here!<a/> It is already deployed by Vercel!
 <br/>
-If you want to access it on mobile or tablet mode, right click > inspector > and click on mobile icon!
+Mobile version is on its way, we are working on its responsivenes...!
 
 ## Get Calculator app and enjoy! 📱
 
